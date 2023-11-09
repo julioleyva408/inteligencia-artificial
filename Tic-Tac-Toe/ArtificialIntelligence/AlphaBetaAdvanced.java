@@ -14,7 +14,7 @@ class AlphaBetaAdvanced {
     static void run (Board.State player, Board board, double maxPly) {
 
         if (maxPly < 1) {
-            throw new IllegalArgumentException("Maximum depth must be greater than 0.");
+            throw new IllegalArgumentException("La profundidad maxima debe ser mayor a 0.");
         }
 
         AlphaBetaAdvanced.maxPly = maxPly;
@@ -91,7 +91,7 @@ class AlphaBetaAdvanced {
     private static int score (Board.State player, Board board, int currentPly) {
 
         if (player == Board.State.Blank) {
-            throw new IllegalArgumentException("Player must be X or O.");
+            throw new IllegalArgumentException("El jugador debe de ser X o O.");
         }
 
         Board.State opponent = (player == Board.State.X) ? Board.State.O : Board.State.X;

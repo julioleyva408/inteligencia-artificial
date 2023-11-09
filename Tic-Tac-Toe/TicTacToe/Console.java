@@ -18,7 +18,7 @@ public class Console {
 
     private void play () {
 
-        System.out.println("Starting a new game.");
+        System.out.println("Comenzando un nuevo juego.");
 
         while (true) {
             printGameStatus();
@@ -46,22 +46,22 @@ public class Console {
 
     private void printGameStatus () {
         System.out.println("\n" + board + "\n");
-        System.out.println(board.getTurn().name() + "'s turn.");
+        System.out.println(board.getTurn().name() + "Es tu turno");
     }
 
 
     private void getPlayerMove () {
-        System.out.print("Index of move: ");
+        System.out.print("Índice de movimiento: ");
 
         int move = sc.nextInt();
 
         if (move < 0 || move >= Board.BOARD_WIDTH* Board.BOARD_WIDTH) {
-            System.out.println("\nInvalid move.");
-            System.out.println("\nThe index of the move must be between 0 and "
-                    + (Board.BOARD_WIDTH * Board.BOARD_WIDTH - 1) + ", inclusive.");
+            System.out.println("\nMovimiento invalido");
+            System.out.println("\nEl índice del movimiento debe estar entre 0 y "
+                    + (Board.BOARD_WIDTH * Board.BOARD_WIDTH - 1) + ", inclusivo.");
         } else if (!board.move(move)) {
-            System.out.println("\nInvalid move.");
-            System.out.println("\nThe selected index must be blank.");
+            System.out.println("\nMovimiento invalido.");
+            System.out.println("\nEl índice seleccionado debe estar en blanco..");
         }
     }
 
@@ -72,9 +72,9 @@ public class Console {
         System.out.println("\n" + board + "\n");
 
         if (winner == Board.State.Blank) {
-            System.out.println("The TicTacToe is a Draw.");
+            System.out.println("El TicTacToe es un empate..");
         } else {
-            System.out.println("Player " + winner.toString() + " wins!");
+            System.out.println("Jugador " + winner.toString() + "es el ganador!");
         }
     }
 
@@ -82,8 +82,8 @@ public class Console {
     private boolean tryAgain () {
         if (promptTryAgain()) {
             board.reset();
-            System.out.println("Started new game.");
-            System.out.println("X's turn.");
+            System.out.println("Comenzando nuevo juego.");
+            System.out.println("X es tu turno.");
             return true;
         }
 
@@ -93,14 +93,14 @@ public class Console {
 
     private boolean promptTryAgain () {
         while (true) {
-            System.out.print("Would you like to start a new game? (Y/N): ");
+            System.out.print("¿Quieres empezar un nuevo juego? (S/N): ");
             String response = sc.next();
-            if (response.equalsIgnoreCase("y")) {
+            if (response.equalsIgnoreCase("s")) {
                 return true;
             } else if (response.equalsIgnoreCase("n")) {
                 return false;
             }
-            System.out.println("Invalid input.");
+            System.out.println("Entrada invalida.");
         }
     }
 

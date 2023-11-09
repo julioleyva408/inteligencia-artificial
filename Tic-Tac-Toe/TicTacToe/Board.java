@@ -56,7 +56,7 @@ public class Board {
     private boolean move (int x, int y) {
 
         if (gameOver) {
-            throw new IllegalStateException("TicTacToe is over. No moves can be played.");
+            throw new IllegalStateException("Se acabó TicTacToe.No se pueden realizar movimientos.");
         }
 
         if (board[y][x] == State.Blank) {
@@ -102,7 +102,7 @@ public class Board {
 
     public State getWinner () {
         if (!gameOver) {
-            throw new IllegalStateException("TicTacToe is not over yet.");
+            throw new IllegalStateException("TicTacToe aún no ha terminado.");
         }
         return winner;
     }

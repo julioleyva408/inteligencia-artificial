@@ -63,7 +63,7 @@ public class Window extends JFrame {
     private void setWindowProperties () {
         setResizable(false);
         pack();
-        setTitle("Lazo's Tic Tac Toe");
+        setTitle("TicTacToe");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
     }
@@ -94,7 +94,7 @@ public class Window extends JFrame {
             path = ".." + File.separator + "Assets" + File.separator + path + ".png";
             image = ImageIO.read(Window.class.getResource(path));
         } catch (IOException ex) {
-            throw new RuntimeException("Image could not be loaded.");
+            throw new RuntimeException("No se pudo cargar la imagen..");
         }
 
         return image;
@@ -156,9 +156,9 @@ public class Window extends JFrame {
                 String s;
 
                 if (board.getWinner() == Board.State.Blank) {
-                    s = "Draw";
+                    s = "Empate";
                 } else {
-                    s = board.getWinner() + " Wins!";
+                    s = board.getWinner() + " Ganador!";
                 }
 
                 g.drawString(s, 300 - getFontMetrics(g.getFont()).stringWidth(s)/2, 315);
@@ -219,10 +219,10 @@ public class Window extends JFrame {
     public static void main(String[] args) {
 
         if (args.length == 1) {
-            System.out.println("Game Mode: Player vs. Player");
+            System.out.println("Modo de juego: Jugador vs Jugador");
             SwingUtilities.invokeLater(() -> new Window(Mode.Player));
         } else {
-            System.out.println("Game Mode: Player vs. AI");
+            System.out.println("Modo de juego: Jugador vs. IA");
             SwingUtilities.invokeLater(() -> new Window(Mode.AI));
         }
 

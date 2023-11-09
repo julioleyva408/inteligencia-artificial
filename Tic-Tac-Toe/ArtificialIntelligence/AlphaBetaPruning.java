@@ -13,7 +13,7 @@ class AlphaBetaPruning {
 
     static void run (Board.State player, Board board, double maxPly) {
         if (maxPly < 1) {
-            throw new IllegalArgumentException("Maximum depth must be greater than 0.");
+            throw new IllegalArgumentException("La profundidad máxima debe ser mayor que 0.");
         }
 
         AlphaBetaPruning.maxPly = maxPly;
@@ -91,7 +91,7 @@ class AlphaBetaPruning {
 
     private static int score (Board.State player, Board board) {
         if (player == Board.State.Blank) {
-            throw new IllegalArgumentException("Player must be X or O.");
+            throw new IllegalArgumentException("El jugador debe ser X u O.");
         }
 
         Board.State opponent = (player == Board.State.X) ? Board.State.O : Board.State.X;
